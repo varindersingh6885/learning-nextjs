@@ -9,6 +9,7 @@ async function getUserDetails() {
 
 // ! async components
 export default async function UserPage() {
+  await new Promise((r) => setTimeout(r, 3000));
   const userDetails = await getUserDetails();
   console.log("user details fetched on server side", userDetails);
 
