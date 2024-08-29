@@ -4,7 +4,7 @@ interface LabelledInputType {
   label: string;
   placeholder: string;
   type?: string;
-  onChange: ChangeEventHandler<HTMLInputElement>;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
 }
 
 export const LabelledInput = ({

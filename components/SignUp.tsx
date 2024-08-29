@@ -3,10 +3,13 @@
 import axios from "axios";
 import { ChangeEventHandler, useState } from "react";
 import { LabelledInput } from "./LabelledInput";
+import { useRouter } from "next/navigation";
 
 export const SignUp = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const router = useRouter();
 
   const handleSignUp = () => {
     axios.post("http://localhost:3000/api/user", {
@@ -49,6 +52,18 @@ export const SignUp = () => {
               >
                 Sign in
               </button>
+              <div className="flex">
+                <p>Already have an account?</p>
+                <button
+                  onClick={() => {
+                    router.push("/signin");
+                  }}
+                  type="button"
+                  className="ml-2 underline text-blue-600 cursor-pointer"
+                >
+                  Sign in
+                </button>
+              </div>
             </div>
           </div>
         </a>

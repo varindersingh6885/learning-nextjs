@@ -3,6 +3,7 @@ import { SignInHandler } from "./SignInHandler";
 
 export const SignInComponent = () => {
   console.log("hello rendered server side");
+
   return (
     <div className="h-screen flex justify-center flex-col">
       <div className="flex justify-center">
