@@ -4,10 +4,11 @@ import { PrismaClient } from "@prisma/client";
 const client = new PrismaClient();
 
 // handle Get request for route 'api/user'
-export function GET() {
+export async function GET() {
+  const user = await client.user.findFirst({});
   return Response.json({
-    email: "varindersingh6885@gmail.com",
-    name: "varinder",
+    email: user?.username,
+    name: user?.username,
   });
 }
 

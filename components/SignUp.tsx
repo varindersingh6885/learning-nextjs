@@ -4,6 +4,7 @@ import axios from "axios";
 import { ChangeEventHandler, useState } from "react";
 import { LabelledInput } from "./LabelledInput";
 import { useRouter } from "next/navigation";
+import { createUser } from "@/app/actions/user";
 
 export const SignUp = () => {
   const [username, setUsername] = useState("");
@@ -11,11 +12,9 @@ export const SignUp = () => {
 
   const router = useRouter();
 
-  const handleSignUp = () => {
-    axios.post("http://localhost:3000/api/user", {
-      username,
-      password,
-    });
+  const handleSignUp = async () => {
+    const isUserCreated = await createUser(username, password);
+    console.log("isUserCreated", isUserCreated);
   };
 
   return (
